@@ -15,4 +15,4 @@ GORDA es una aplicación interactiva escrita en Python que permite a los usuario
 
 1. Clona este repositorio o descarga el archivo ZIP.
 2. Asegúrate de tener Python instalado. Puedes descargarlo desde [python.org](https://www.python.org/downloads/).
-3. Instala las librerías necesarias usando pip:
+3. Instala las librerías necesarias usando pip
