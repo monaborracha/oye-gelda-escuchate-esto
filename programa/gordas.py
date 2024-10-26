@@ -4,6 +4,7 @@ from PIL import Image, ImageTk
 import time
 import pygame  # Importar pygame para modificar el audio
 import sys  # Importar sys para salir del programa
+import os  # Importar os para manejar rutas de archivos
 
 # Inicializar pygame para la música
 pygame.mixer.init()
@@ -14,6 +15,9 @@ root.withdraw()  # Ocultar ventana principal temporalmente
 
 # Inicializar variable global para el tamaño del logo
 logo_size = None
+
+# Obtener el directorio del script actual
+directorio_actual = os.path.dirname(os.path.abspath(__file__))
 
 # Función principal que pide el peso
 def pedir_peso():
@@ -43,8 +47,8 @@ def mostrar_animacion():
     global root, logo_size  # Hacer que root y logo_size sean globales
     logo_size = int(min(root.winfo_screenwidth(), root.winfo_screenheight()) * 0.2)  # Inicializar tamaño del logo
 
-    # Reproducir la música en bucle
-    pygame.mixer.music.load("oye-gelda-escuchate-esto-main/programa/musica.mp3")  # Reemplaza con la ruta completa de tu archivo de música
+    # Cargar archivos de música y imágenes usando rutas relativas
+    pygame.mixer.music.load(os.path.join(directorio_actual, "musica.mp3"))  # Cargar música
     pygame.mixer.music.play(-1)  # -1 hace que la música se reproduzca en bucle
 
     # Crear nueva ventana para mostrar la animación
@@ -59,8 +63,8 @@ def mostrar_animacion():
     ventana.geometry(f"{screen_width}x{screen_height}")
     ventana.resizable(False, False)  # Evitar que el usuario redimensione la ventana
 
-    # Cargar imagen de fondo (usa la ruta completa)
-    fondo = Image.open("oye-gelda-escuchate-esto-main/programa/fondo.jpg")  # Reemplaza con la ruta completa de fondo.jpg
+    # Cargar imagen de fondo
+    fondo = Image.open(os.path.join(directorio_actual, "fondo.jpg"))  # Cargar fondo
     fondo = fondo.resize((screen_width, screen_height))
     fondo = ImageTk.PhotoImage(fondo)
 
@@ -71,8 +75,8 @@ def mostrar_animacion():
     # Mostrar imagen de fondo
     canvas.create_image(0, 0, anchor=tk.NW, image=fondo)
 
-    # Cargar logo inicial (usa la ruta completa)
-    logo_img_original = Image.open("oye-gelda-escuchate-esto-main/programa/logo.png").convert("RGBA")
+    # Cargar logo inicial
+    logo_img_original = Image.open(os.path.join(directorio_actual, "logo.png")).convert("RGBA")
 
     # Variable para guardar la imagen rotada
     logo_tk_rotado = None
