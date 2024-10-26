@@ -44,7 +44,7 @@ def mostrar_animacion():
     logo_size = int(min(root.winfo_screenwidth(), root.winfo_screenheight()) * 0.2)  # Inicializar tamaño del logo
 
     # Reproducir la música en bucle
-    pygame.mixer.music.load("programa/musica.mp3")  # Reemplaza con la ruta completa de tu archivo de música
+    pygame.mixer.music.load("oye-gelda-escuchate-esto-main/programa/musica.mp3")  # Reemplaza con la ruta completa de tu archivo de música
     pygame.mixer.music.play(-1)  # -1 hace que la música se reproduzca en bucle
 
     # Crear nueva ventana para mostrar la animación
@@ -60,7 +60,7 @@ def mostrar_animacion():
     ventana.resizable(False, False)  # Evitar que el usuario redimensione la ventana
 
     # Cargar imagen de fondo (usa la ruta completa)
-    fondo = Image.open("programa/fondo.jpg")  # Reemplaza con la ruta completa de fondo.jpg
+    fondo = Image.open("oye-gelda-escuchate-esto-main/programa/fondo.jpg")  # Reemplaza con la ruta completa de fondo.jpg
     fondo = fondo.resize((screen_width, screen_height))
     fondo = ImageTk.PhotoImage(fondo)
 
@@ -72,7 +72,7 @@ def mostrar_animacion():
     canvas.create_image(0, 0, anchor=tk.NW, image=fondo)
 
     # Cargar logo inicial (usa la ruta completa)
-    logo_img_original = Image.open("programa/logo.png").convert("RGBA")
+    logo_img_original = Image.open("oye-gelda-escuchate-esto-main/programa/logo.png").convert("RGBA")
 
     # Variable para guardar la imagen rotada
     logo_tk_rotado = None
